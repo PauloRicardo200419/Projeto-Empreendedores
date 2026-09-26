@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizaê — Organize seu dinheiro com simplicidade</title>
+<meta name="description" content="Ferramenta simples de organização financeira para estudantes universitários.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+<!-- HEADER -->
+<header class="header" role="banner">
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="Organizaê - início">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect width="24" height="24" rx="7" fill="#16A34A"/>
+        <path d="M7 13.5L10 16.5L17 8.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Organizaê</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#formulario">Quero testar</a>
+    </nav>
+
+    <button class="btn btn-primary btn-header" data-scroll="#formulario">Quero testar</button>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" id="mobileMenu" aria-label="Navegação mobile" hidden>
+    <a href="#beneficios">Benefícios</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#formulario">Quero testar</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <div class="hero-text fade-in">
+        <h1 id="hero-title">Organize seu dinheiro e termine o mês com mais tranquilidade.</h1>
+        <p class="hero-subtitle">Uma ferramenta simples para estudantes controlarem gastos, planejarem contas e economizarem.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" data-scroll="#formulario">Quero testar o Organizaê</button>
+          <button class="btn btn-secondary btn-lg" data-scroll="#como-funciona">Como funciona</button>
+        </div>
+      </div>
+
+      <div class="hero-visual fade-in" aria-hidden="true">
+        <div class="panel-card">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <span class="panel-dot"></span>
+            <span class="panel-dot"></span>
+          </div>
+          <div class="panel-balance">
+            <span class="panel-label">Saldo disponível</span>
+            <strong class="panel-value">R$ 842,50</strong>
+          </div>
+          <div class="panel-row">
+            <div class="mini-card">
+              <span class="mini-label">Gastos do mês</span>
+              <strong class="mini-value">R$ 657,00</strong>
+            </div>
+            <div class="mini-card">
+              <span class="mini-label">Categorias</span>
+              <div class="tags">
+                <span class="tag tag-green">Alimentação</span>
+                <span class="tag tag-blue">Transporte</span>
+                <span class="tag tag-gray">Lazer</span>
+              </div>
+            </div>
+          </div>
+          <div class="chart-bars">
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:65%"></div>
+            <div class="bar" style="height:35%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:70%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problema" aria-labelledby="problema-title">
+    <div class="container">
+      <h2 id="problema-title" class="section-title fade-in">Você sabe exatamente quanto gasta todos os meses?</h2>
+      <p class="section-text fade-in">
+        Muitos estudantes têm dificuldade para acompanhar pequenos gastos, controlar compras parceladas
+        e saber quanto dinheiro ainda podem gastar até o fim do mês.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-item fade-in">
+          <span class="problem-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 8v5m0 4h.01M10.3 3.9L2.5 17a1.5 1.5 0 001.3 2.3h16.4a1.5 1.5 0 001.3-2.3L13.7 3.9a1.5 1.5 0 00-2.6 0z" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <p>Falta de controle sobre os gastos</p>
+        </div>
+        <div class="problem-item fade-in">
+          <span class="problem-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0F172A" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <p>Surpresas no fim do mês</p>
+        </div>
+        <div class="problem-item fade-in">
+          <span class="problem-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <p>Dificuldade para economizar</p>
+        </div>
+        <div class="problem-item fade-in">
+          <span class="problem-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#0F172A" stroke-width="1.6"/><path d="M3 10h18" stroke="#0F172A" stroke-width="1.6"/></svg>
+          </span>
+          <p>Uso desorganizado do cartão e do Pix</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" class="beneficios" aria-labelledby="beneficios-title">
+    <div class="container">
+      <h2 id="beneficios-title" class="section-title fade-in">Tenha mais controle sobre sua vida financeira</h2>
+
+      <div class="cards-grid">
+        <article class="card fade-in">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#16A34A" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Controle rápido</h3>
+          <p>Controle seus gastos em poucos minutos, sem burocracia.</p>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15l3-3 3 2 4-5" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Visão clara</h3>
+          <p>Saiba onde seu dinheiro está sendo usado, de forma simples.</p>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V6l-8-3-8 3v5c0 6.5 8 11 8 11z" stroke="#16A34A" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Mais segurança</h3>
+          <p>Evite surpresas no fim do mês acompanhando seu orçamento.</p>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="#16A34A" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Melhor planejamento</h3>
+          <p>Planeje melhor suas compras e contas com mais antecedência.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="como-funciona" aria-labelledby="como-funciona-title">
+    <div class="container">
+      <h2 id="como-funciona-title" class="section-title fade-in">Comece a organizar seu dinheiro de forma simples</h2>
+
+      <div class="steps">
+        <div class="step fade-in">
+          <span class="step-number">1</span>
+          <p>Cadastre seus gastos.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step fade-in">
+          <span class="step-number">2</span>
+          <p>Escolha suas categorias.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step fade-in">
+          <span class="step-number">3</span>
+          <p>Acompanhe seu orçamento.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step fade-in">
+          <span class="step-number">4</span>
+          <p>Receba recomendações para economizar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container cta-inner fade-in">
+      <h2 id="cta-title">Quer ter mais tranquilidade para controlar seu dinheiro?</h2>
+      <button class="btn btn-cta btn-lg" data-scroll="#formulario">Quero testar o Organizaê</button>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section id="formulario" class="formulario" aria-labelledby="formulario-title">
+    <div class="container">
+      <div class="form-wrapper fade-in">
+        <h2 id="formulario-title" class="section-title">Faça parte dos primeiros usuários</h2>
+        <p class="section-text">Cadastre seus dados para demonstrar interesse e receber novidades sobre o Organizaê.</p>
+
+        <form id="interesseForm" novalidate>
+          <div class="form-group">
+            <label for="nome">Nome <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="nome" name="nome" required autocomplete="name">
+            <span class="error-message" id="erro-nome" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail <span class="required" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <span class="error-message" id="erro-email" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="dificuldade">Principal dificuldade financeira <span class="required" aria-hidden="true">*</span></label>
+            <select id="dificuldade" name="dificuldade" required>
+              <option value="">Selecione uma opção</option>
+              <option value="Não sei para onde meu dinheiro vai">Não sei para onde meu dinheiro vai</option>
+              <option value="Tenho dificuldade para economizar">Tenho dificuldade para economizar</option>
+              <option value="Gasto muito no cartão">Gasto muito no cartão</option>
+              <option value="Tenho dificuldade para controlar compras parceladas">Tenho dificuldade para controlar compras parceladas</option>
+              <option value="Outra">Outra</option>
+            </select>
+            <span class="error-message" id="erro-dificuldade" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="interesse">Interesse em testar a solução <span class="required" aria-hidden="true">*</span></label>
+            <select id="interesse" name="interesse" required>
+              <option value="">Selecione uma opção</option>
+              <option value="Sim, quero testar">Sim, quero testar</option>
+              <option value="Talvez, quero saber mais">Talvez, quero saber mais</option>
+              <option value="Ainda não tenho certeza">Ainda não tenho certeza</option>
+            </select>
+            <span class="error-message" id="erro-interesse" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Quero testar o Organizaê</button>
+
+          <div class="form-success" id="formSuccess" role="status" hidden>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#16A34A"/><path d="M7 12.5l3 3 7-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Obrigado pelo interesse! Em breve entraremos em contato com mais informações sobre o Organizaê.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Organizaê</span>
+      <p>Mais controle para uma vida financeira mais tranquila.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navegação do rodapé">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#formulario">Quero testar</a>
+    </nav>
+  </div>
+  <div class="container">
+    <p class="footer-note">Projeto acadêmico para validação de interesse.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
