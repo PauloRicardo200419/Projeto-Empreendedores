@@ -828,7 +828,9 @@ if (depoimentosTrack) {
   requestAnimationFrame(animarDepoimentos);
 }
 
-// ===== VALIDAÇÃO E ENVIO DO FORMULÁRIO =====
+// ===== VALIDAÇÃO E ENVIO DO FORMULÁRIO COM GOOGLE SHEETS =====
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxPSzLk7x6pWKGSJGw7sSvWeurRo_ecDfQRLfeHAuZJkGlq3sdhtc5DwvyV4X5zDpzJdw/exec';
+
 const form = document.getElementById('interesseForm');
 const formSuccess = document.getElementById('formSuccess');
 
@@ -912,16 +914,26 @@ if (form) {
       return;
     }
 
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtnSpan = submitBtn ? submitBtn.querySelector('span') : null;
+    const originalBtnText = submitBtnSpan ? submitBtnSpan.textContent : 'Garantir minha vaga gratuita no Beta';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (submitBtnSpan) submitBtnSpan.textContent = 'Gravando sua vaga no Beta...';
+    }
+
     const dados = {
       nome: fields.nome.el.value.trim(),
       email: fields.email.el.value.trim(),
       dificuldade: fields.dificuldade.el.value,
       interesse: fields.interesse.el.value,
-      data: new Date().toISOString()
+      data: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
     };
 
-    console.log('Novo cadastro no Beta (Organizaê):', dados);
+    console.log('Enviando novo cadastro para o Google Sheets:', dados);
 
+    // 1. Salvar no LocalStorage como backup local imediato
     try {
       const leads = JSON.parse(localStorage.getItem('organizae_leads') || '[]');
       leads.push(dados);
@@ -930,13 +942,39 @@ if (form) {
       console.warn('Erro ao salvar localmente:', err);
     }
 
-    if (formSuccess) {
-      formSuccess.hidden = false;
-      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    // 2. Disparo para a planilha do Google Sheets com suporte total a UTF-8 (acentuação perfeita)
+    const formData = new URLSearchParams();
+    formData.append('data', dados.data);
+    formData.append('nome', dados.nome);
+    formData.append('email', dados.email);
+    formData.append('dificuldade', dados.dificuldade);
+    formData.append('interesse', dados.interesse);
 
-    form.reset();
-    Object.keys(fields).forEach(limparErro);
+    fetch(GOOGLE_SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+    .then(() => {
+      console.log('✅ Inscrição gravada no Google Sheets com sucesso!');
+    })
+    .catch((err) => {
+      console.error('Erro ao conectar com Google Sheets:', err);
+    })
+    .finally(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (submitBtnSpan) submitBtnSpan.textContent = originalBtnText;
+      }
+
+      if (formSuccess) {
+        formSuccess.hidden = false;
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      form.reset();
+      Object.keys(fields).forEach(limparErro);
+    });
   });
 
   Object.keys(fields).forEach(campo => {
@@ -1308,33 +1346,5 @@ if (btnDepositDemo && cofreVal1 && cofreFill1) {
       btnDepositDemo.textContent = saldoCofre1 >= 800 ? '🎉 Meta da Reserva Concluída!' : `+ Guardar R$ 30 (R$ ${saldoCofre1}/800)`;
     }
   });
-}
-
-// ===== 5. BARRA FLUTUANTE DE VALOR (FLOATING VALUE DOCK - ÚNICA) =====
-const floatingDock = document.getElementById('floatingDock');
-const btnDismissDock = document.getElementById('btnDismissDock');
-let dockDismissed = false;
-
-if (btnDismissDock && floatingDock) {
-  btnDismissDock.addEventListener('click', () => {
-    dockDismissed = true;
-    floatingDock.classList.remove('visible');
-  });
-}
-
-if (floatingDock) {
-  window.addEventListener('scroll', () => {
-    if (dockDismissed) return;
-    const scrollY = window.scrollY || window.pageYOffset;
-    const formRect = formSection ? formSection.getBoundingClientRect() : null;
-    const isNearForm = formRect && formRect.top < window.innerHeight && formRect.bottom > 0;
-
-    // Aparece após 450px de rolagem e some perto do formulário
-    if (scrollY > 450 && !isNearForm) {
-      floatingDock.classList.add('visible');
-    } else {
-      floatingDock.classList.remove('visible');
-    }
-  }, { passive: true });
 }
 
