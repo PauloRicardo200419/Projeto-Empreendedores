@@ -140,16 +140,16 @@ export function LeadForm() {
                       <button
                         key={opt.val}
                         onClick={() => {
-                          setFormData({ ...formData, objetivo: opt.val });
+                          setFormData({ ...formData, objetivo: opt.label });
                           handleNext();
                         }}
                         className={`text-left p-6 rounded-2xl border-2 transition-all flex flex-col gap-3 group ${
-                          formData.objetivo === opt.val 
+                          formData.objetivo === opt.label 
                             ? 'border-brand-600 bg-brand-50' 
                             : 'border-slate-100 hover:border-brand-300 hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`${formData.objetivo === opt.val ? 'text-brand-600' : 'text-slate-400 group-hover:text-brand-500'}`}>
+                        <div className={`${formData.objetivo === opt.label ? 'text-brand-600' : 'text-slate-400 group-hover:text-brand-500'}`}>
                           {opt.icon}
                         </div>
                         <span className="font-bold text-slate-900 text-lg">{opt.label}</span>
