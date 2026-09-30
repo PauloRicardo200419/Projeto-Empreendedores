@@ -20,10 +20,31 @@ export function LeadForm() {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    // Simular API Call conforme requisitado
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsLoading(false);
-    setStep(4);
+    try {
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: formData.nome,
+          email: formData.email,
+          quantidade_propriedades: formData.propriedades,
+          duvidas_frequentes: [formData.objetivo]
+        })
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Erro: ${errorData.error}`);
+        setIsLoading(false);
+        return;
+      }
+
+      setStep(4);
+    } catch (error) {
+      alert('Erro de conexão. Tente novamente.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleNext = () => setStep(prev => prev + 1);
