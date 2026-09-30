@@ -3,9 +3,9 @@
 > **Componente Curricular:** Projetos Empreendedores  
 > **Instituição:** Universidade Presbiteriana Mackenzie (EaD)  
 > **Integrantes:**  
-> - Thaís Cristine de Andrade Gomes (TIA / RA: 10721642)  
-> - Paulo Ricardo de Oliveira Ramos (TIA / RA: 10721464)  
-> - Lucas Iglezias dos Anjos (TIA / RA: 10433522)  
+> - Thaís Cristine de Andrade Gomes (RA: 10721642)  
+> - Paulo Ricardo de Oliveira Ramos (RA: 10721464)  
+> - Lucas Iglezias dos Anjos (RA: 10433522)  
 
 ---
 
