@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     // 2. Inserção no Supabase
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('leads')
       .insert([
         {
@@ -24,8 +24,7 @@ export async function POST(request: Request) {
           quantidade_propriedades,
           duvidas_frequentes,
         },
-      ])
-      .select();
+      ]);
 
     if (error) {
       // Se for violação de unique (e-mail já cadastrado)
@@ -45,7 +44,7 @@ export async function POST(request: Request) {
 
     // 3. Sucesso
     return NextResponse.json(
-      { message: 'Lead capturado com sucesso!', lead: data },
+      { message: 'Lead capturado com sucesso!' },
       { status: 200 }
     );
 
