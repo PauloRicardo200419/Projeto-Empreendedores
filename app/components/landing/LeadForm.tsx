@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ChevronRight, Home, Building2, LayoutList, Trophy, Mail, User, Briefcase, Building } from 'lucide-react';
+import { CheckCircle2, ChevronRight, Home, Building2, LayoutList, Trophy, Mail, User, Briefcase, Building, MessageSquareOff } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
