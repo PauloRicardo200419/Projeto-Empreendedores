@@ -28,7 +28,7 @@ export function LeadForm() {
           nome: formData.nome,
           email: formData.email,
           quantidade_propriedades: formData.propriedades,
-          duvidas_frequentes: [formData.objetivo]
+          objetivo: [formData.objetivo]
         })
       });
 

@@ -5,7 +5,7 @@ CREATE TABLE public.leads (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     quantidade_propriedades VARCHAR(50) NOT NULL,
-    duvidas_frequentes JSONB NOT NULL
+    objetivo JSONB NOT NULL
 );
 
 -- 2. Habilitar o Row Level Security (RLS)

@@ -4,10 +4,10 @@ import { supabase } from '../../../src/utils/supabase';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { nome, email, quantidade_propriedades, duvidas_frequentes } = body;
+    const { nome, email, quantidade_propriedades, objetivo } = body;
 
     // 1. Validação simples
-    if (!nome || !email || !quantidade_propriedades || !duvidas_frequentes || duvidas_frequentes.length === 0) {
+    if (!nome || !email || !quantidade_propriedades || !objetivo || objetivo.length === 0) {
       return NextResponse.json(
         { error: 'Todos os campos são obrigatórios e devem ser preenchidos.' },
         { status: 400 }
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
           nome,
           email,
           quantidade_propriedades,
-          duvidas_frequentes,
+          objetivo,
         },
       ]);
 
